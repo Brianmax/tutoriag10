@@ -22,7 +22,7 @@ public class AutorEntity {
     private Date fechaCreacion;
     private Date fechaModificacion;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "autor_libro",
     joinColumns = @JoinColumn(name = "autor"),
     inverseJoinColumns = @JoinColumn(name = "libro"))
