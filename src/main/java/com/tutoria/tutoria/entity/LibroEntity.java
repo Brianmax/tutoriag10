@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,4 +21,11 @@ public class LibroEntity {
     private Date fechaPublicacion;
     private Date fechaCreacion;
     private Date fechaModificacion;
+
+    @ManyToOne
+    @JoinColumn(name = "id_editorial")
+    private EditorialEntity editorial;
+
+    @ManyToMany(mappedBy = "libros")
+    private List<AutorEntity> autores;
 }
